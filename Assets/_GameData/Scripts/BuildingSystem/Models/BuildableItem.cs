@@ -8,5 +8,9 @@ public class BuildableItem : ScriptableObject
     public string Name { get; private set; }
     [field: SerializeField]
     public TileBase Tile { get; private set; }
+    [field: SerializeField]
+    public Vector3 TileOffset { get; private set; }
+    [field: SerializeField]
+    public Sprite PreviewSprite { get; private set; }
 
 }

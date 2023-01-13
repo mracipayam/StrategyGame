@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 25d33daef230f8945a2dcc29cbd868be, type: 3}
-  m_Name: Wall
+  m_Name: Wall2
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: Wall
-  <Tile>k__BackingField: {fileID: 11400000, guid: f90f195254e2ea34399048d10aeff33b, type: 2}
+  <Name>k__BackingField: Wall2
+  <Tile>k__BackingField: {fileID: 11400000, guid: 60c9adcd775dcf543bc0c0a91813022d, type: 2}
   <TileOffset>k__BackingField: {x: 0, y: 0, z: 0}
   <PreviewSprite>k__BackingField: {fileID: 21300000, guid: ed2d93e1de15a714aa7e92f70663c52a, type: 3}

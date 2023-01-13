@@ -8,15 +8,27 @@ public class BuildingPlacer : MonoBehaviour
 
     [SerializeField] private float _maxBuildingDistance = 3f;
     [SerializeField] private ConstructionLayer _constructionLayer;
+    [SerializeField] private PreviewLayer _previewLayer;
     [SerializeField] private MouseUser _mouseUser;
+    [SerializeField] private Camera cam;
+    private Vector2 mousePos;
+    private void Awake()
+    {
+        cam = Camera.main;
+    }
 
     private void Update()
     {
-        //if (!IsMouseWithinBuildableRange()) return;
-
-        if (Input.GetMouseButtonDown(0) && ActiveBuildable != null && _constructionLayer != null)
+        if (!IsMouseWithinBuildableRange() || ActiveBuildable == null)
         {
-            _constructionLayer.Build(Camera.main.ScreenToWorldPoint(Input.mousePosition), ActiveBuildable);
+            _previewLayer.ClearPreview();
+            return;
+        }
+        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+        _previewLayer.ShowPreview(ActiveBuildable, mousePos, _constructionLayer.IsEmpty(mousePos));
+        if (Input.GetMouseButtonDown(0) && ActiveBuildable != null && _constructionLayer != null && _constructionLayer.IsEmpty(mousePos))
+        {
+            _constructionLayer.Build(mousePos, ActiveBuildable);
         }
 
     }
@@ -24,5 +36,10 @@ public class BuildingPlacer : MonoBehaviour
     private bool IsMouseWithinBuildableRange()
     {
         return Vector3.Distance(Camera.main.ScreenToWorldPoint(Input.mousePosition), transform.position) <= _maxBuildingDistance;
+    }
+
+    public void SetActiveBuildable(BuildableItem item)
+    {
+        ActiveBuildable = item;
     }
 }
