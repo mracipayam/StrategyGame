@@ -12,5 +12,8 @@ public class BuildableItem : ScriptableObject
     public Vector3 TileOffset { get; private set; }
     [field: SerializeField]
     public Sprite PreviewSprite { get; private set; }
-
+    [field: SerializeField]
+    public Sprite UiIcon { get; private set; }
+    [field: SerializeField]
+    public GameObject GameObject { get; private set; }
 }

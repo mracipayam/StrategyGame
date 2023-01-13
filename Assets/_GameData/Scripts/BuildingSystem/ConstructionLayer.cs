@@ -9,12 +9,18 @@ public class ConstructionLayer : TilemapLayer
 
     public void Build(Vector3 worldCoords, BuildableItem item)
     {
+        GameObject itemObject = null;
         var coords = _tilemap.WorldToCell(worldCoords);
-        var buildable = new Buildable(item, coords, _tilemap);
+
         if (item.Tile != null)
         {
             _tilemap.SetTile(coords, item.Tile);
         }
+        if (item.GameObject != null)
+        {
+            itemObject = Instantiate(item.GameObject, _tilemap.CellToWorld(coords) + _tilemap.cellSize / 2, Quaternion.identity);
+        }
+        var buildable = new Buildable(item, coords, _tilemap, itemObject);
         _buildables.Add(coords, buildable);
     }
 

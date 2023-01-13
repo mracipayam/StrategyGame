@@ -41,5 +41,6 @@ public class BuildingPlacer : MonoBehaviour
     public void SetActiveBuildable(BuildableItem item)
     {
         ActiveBuildable = item;
+        InGameEventManager.RaiseActiveBuildableChange();
     }
 }
