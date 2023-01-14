@@ -1,3 +1,4 @@
+using Assets._GameData.Scripts.Extensions;
 using System;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -22,6 +23,24 @@ namespace Assets._GameData.Scripts.BuildingSystem.Models
             BuildableType = type;
             GameObject = gameObject;
             Coordinates = coordinates;
+        }
+
+        public void Destroy()
+        {
+            if (GameObject != null)
+            {
+                UnityEngine.Object.Destroy(GameObject);
+            }
+            ParentTilemap.SetTile(Coordinates, null);
+        }
+
+        public void IterateCollisionSpace(RectIntExtensions.RectAction action)
+        {
+            BuildableType.CollisionSpace.Iterate(Coordinates, action);
+        }
+        public bool IterateCollisionSpace(RectIntExtensions.RectActionBool action)
+        {
+            return BuildableType.CollisionSpace.Iterate(Coordinates, action);
         }
     }
 }

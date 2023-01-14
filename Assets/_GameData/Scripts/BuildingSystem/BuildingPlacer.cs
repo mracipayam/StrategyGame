@@ -19,18 +19,29 @@ public class BuildingPlacer : MonoBehaviour
 
     private void Update()
     {
-        if (!IsMouseWithinBuildableRange() || ActiveBuildable == null)
+        if (!IsMouseWithinBuildableRange() || _constructionLayer == null)
         {
             _previewLayer.ClearPreview();
             return;
         }
+        if (ActiveBuildable == null) return;
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-        _previewLayer.ShowPreview(ActiveBuildable, mousePos, _constructionLayer.IsEmpty(mousePos));
-        if (Input.GetMouseButtonDown(0) && ActiveBuildable != null && _constructionLayer != null && _constructionLayer.IsEmpty(mousePos))
+        if (Input.GetMouseButtonDown(1))
+        {
+            _constructionLayer.Destroy(mousePos);
+        }
+
+        var isSpaceEmpty = _constructionLayer.IsEmpty(mousePos,
+                ActiveBuildable.UseCustomCollisionSpace ?
+                ActiveBuildable.CollisionSpace :
+                default);
+
+        _previewLayer.ShowPreview(ActiveBuildable, mousePos, isSpaceEmpty);
+
+        if (Input.GetMouseButtonDown(0) && isSpaceEmpty)
         {
             _constructionLayer.Build(mousePos, ActiveBuildable);
         }
-
     }
 
     private bool IsMouseWithinBuildableRange()

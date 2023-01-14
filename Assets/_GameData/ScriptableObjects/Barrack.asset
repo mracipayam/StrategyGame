@@ -14,7 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Barrack
   <Tile>k__BackingField: {fileID: 0}
-  <TileOffset>k__BackingField: {x: 0, y: 0, z: 0}
-  <PreviewSprite>k__BackingField: {fileID: 21300000, guid: ab9db9100e1643845898f3f4e9c83f42, type: 3}
-  <UiIcon>k__BackingField: {fileID: 21300000, guid: ab9db9100e1643845898f3f4e9c83f42, type: 3}
-  <GameObject>k__BackingField: {fileID: 4942290962971919347, guid: d3ac6487d95450f4db1bed333f7e14ba, type: 3}
+  <TileOffset>k__BackingField: {x: 0.5, y: 0.5, z: 0}
+  <PreviewSprite>k__BackingField: {fileID: 21300000, guid: beab666c916cb9d4089f85509a115595, type: 3}
+  <UiIcon>k__BackingField: {fileID: 21300000, guid: beab666c916cb9d4089f85509a115595, type: 3}
+  <GameObject>k__BackingField: {fileID: 4534036800981333960, guid: d3ac6487d95450f4db1bed333f7e14ba, type: 3}
+  <UseCustomCollisionSpace>k__BackingField: 1
+  <CollisionSpace>k__BackingField:
+    x: -1
+    y: -1
+    width: 4
+    height: 4

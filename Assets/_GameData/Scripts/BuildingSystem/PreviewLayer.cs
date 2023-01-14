@@ -8,7 +8,7 @@ public class PreviewLayer : TilemapLayer
     {
         var coords = _tilemap.WorldToCell(worldCoords);
         _previewRenderer.enabled = true;
-        _previewRenderer.transform.position = _tilemap.CellToWorld(coords) + _tilemap.cellSize / 2;
+        _previewRenderer.transform.position = _tilemap.CellToWorld(coords) + _tilemap.cellSize / 2 + item.TileOffset;
         _previewRenderer.sprite = item.PreviewSprite;
         _previewRenderer.color = isValid ? new Color(0, 1, 0, .5f) : new Color(1, 0, 0, .5f);
     }
