@@ -41,6 +41,7 @@ public class BuildingPlacer : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && isSpaceEmpty)
         {
             _constructionLayer.Build(mousePos, ActiveBuildable);
+            ActiveBuildable = null;
         }
     }
 

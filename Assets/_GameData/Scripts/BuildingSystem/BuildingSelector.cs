@@ -8,19 +8,41 @@ public class BuildingSelector : MonoBehaviour
     [SerializeField]
     private BuildingPlacer _buildingPlacer;
 
-    private int _activeBuildableIndex;
+    //private int _activeBuildableIndex;
 
-    private void NextItem()
+    private void OnEnable()
     {
-        _activeBuildableIndex = (_activeBuildableIndex + 1) % _buildables.Count;
-        _buildingPlacer.SetActiveBuildable(_buildables[_activeBuildableIndex]);
+        GameEventManager.instance.OnBarrackBuildButton += BarrackBuildButtonHandler;
+        GameEventManager.instance.OnPowerPlantBuildButton += PowerPlantButtonHandler;
+    }
+    private void OnDisable()
+    {
+        GameEventManager.instance.OnBarrackBuildButton -= BarrackBuildButtonHandler;
+        GameEventManager.instance.OnPowerPlantBuildButton -= PowerPlantButtonHandler;
+
     }
 
-    private void Update()
+    private void PowerPlantButtonHandler()
     {
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-            NextItem();
-        }
+        _buildingPlacer.SetActiveBuildable(_buildables[1]);
     }
+
+    private void BarrackBuildButtonHandler()
+    {
+        _buildingPlacer.SetActiveBuildable(_buildables[0]);
+    }
+
+    //private void NextItem()
+    //{
+    //    _activeBuildableIndex = (_activeBuildableIndex + 1) % _buildables.Count;
+    //    _buildingPlacer.SetActiveBuildable(_buildables[_activeBuildableIndex]);
+    //}
+
+    //private void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.N))
+    //    {
+    //        NextItem();
+    //    }
+    //}
 }
