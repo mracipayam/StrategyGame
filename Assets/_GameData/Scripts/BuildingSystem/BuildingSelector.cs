@@ -32,17 +32,5 @@ public class BuildingSelector : MonoBehaviour
         _buildingPlacer.SetActiveBuildable(_buildables[0]);
     }
 
-    //private void NextItem()
-    //{
-    //    _activeBuildableIndex = (_activeBuildableIndex + 1) % _buildables.Count;
-    //    _buildingPlacer.SetActiveBuildable(_buildables[_activeBuildableIndex]);
-    //}
 
-    //private void Update()
-    //{
-    //    if (Input.GetKeyDown(KeyCode.N))
-    //    {
-    //        NextItem();
-    //    }
-    //}
 }

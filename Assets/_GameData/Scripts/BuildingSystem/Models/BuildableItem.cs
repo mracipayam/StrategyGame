@@ -20,6 +20,15 @@ public class BuildableItem : ScriptableObject
     public Sprite UiIcon { get; private set; }
 
     [field: SerializeField]
+    public string ProductName { get; private set; }
+
+    [field: SerializeField]
+    public Sprite ProductIcon { get; private set; }
+
+    [field: SerializeField]
+    public MoveOnTilemap Product { get; private set; }
+
+    [field: SerializeField]
     public GameObject GameObject { get; private set; }
 
     [field: SerializeField]

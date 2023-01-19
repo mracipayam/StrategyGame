@@ -7,6 +7,9 @@ using UnityEngine.Tilemaps;
 
 public class MoveOnTilemap : MonoBehaviour
 {
+
+    [SerializeField] private SpriteRenderer spriteRenderer;
+
     Vector3Int[] directions = new Vector3Int[4] { Vector3Int.left, Vector3Int.right, Vector3Int.up, Vector3Int.down };
 
     public Tilemap tilemap;
@@ -50,6 +53,8 @@ public class MoveOnTilemap : MonoBehaviour
         return result;
     }
 
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -82,7 +87,8 @@ public class MoveOnTilemap : MonoBehaviour
 
         }
         transform.position += new Vector3(.5f, 0, 0);
-
+        spriteRenderer.color = Color.white;
+        this.enabled = false;
     }
 
 
